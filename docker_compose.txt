@@ -1,0 +1,6 @@
+docker-compose up --build
+docker-compose down
+docker volume rm tiendamicroservicios_postgres-data ##Elimina el volumen de datos de PostgreSQL para reiniciar la base de datos
+docker-compose up -d usuarios-db orders-db ##Inicia solo los servicios de base de datos para usuarios y órdenes
+docker-compose logs -f usuarios-db ##Muestra los logs del servicio de base de datos de usuarios en tiempo real
+docker-compose up -d orders-db ##Crea o inicia el servicio de base de datos de órdenes

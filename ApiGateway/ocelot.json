@@ -1,0 +1,74 @@
+{
+    "Routes": [
+        {
+            "DownstreamPathTemplate": "/api/Users/{everything}",
+            //"DownstreamScheme": "https",//para desarrollo
+            "DownstreamScheme": "http",//para docker
+            "DownstreamHostAndPorts": [
+                {
+                    //"Host": "localhost", // para desarrollo
+                    "Host": "usuarios-api", // para desarrollo
+                    "Port": 8080 // puerto interno ocelot
+                }
+            ],
+            "UpstreamPathTemplate": "/users/{everything}",
+            "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ],
+            "RateLimitOptions": {
+                "ClientWhitelist": [],
+                "EnableRateLimiting": true,
+                "Period": "10s", //Tiempo de monitoreo
+                "PeriodTimespan": 5, //Tiempo de espera si se pasa del limite
+                "Limit": 3 //Máximo de peticiones permitidas en el Period
+            }
+        },
+        {
+            "DownstreamPathTemplate": "/api/Products/{everything}",
+            //"DownstreamScheme": "https",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    //"Host": "localhost",
+                    "Host": "productos-api",
+                    "Port": 8080 // puerto interno ocelot
+                }
+            ],
+            "UpstreamPathTemplate": "/products/{everything}",
+            "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ],
+            "RateLimitOptions": {
+                "ClientWhitelist": [],
+                "EnableRateLimiting": true,
+                "Period": "10s", //Tiempo de monitoreo
+                "PeriodTimespan": 5, //Tiempo de espera si se pasa del limite
+                "Limit": 3 //Máximo de peticiones permitidas en el Period
+            },
+            "FileCacheOptions": {
+                "TtlSeconds": 30,
+                "Region": "products-cache"
+            }
+        },
+        {
+            "DownstreamPathTemplate": "/api/Orders/{everything}",
+            //"DownstreamScheme": "https",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    //"Host": "localhost",
+                    "Host": "orders-api",
+                    "Port": 8080 // puerto interno ocelot
+                }
+            ],
+            "UpstreamPathTemplate": "/orders/{everything}",
+            "UpstreamHttpMethod": [ "Get", "Post", "Delete" ]
+        }
+    ],
+    "GlobalConfiguration": {
+        //"BaseUrl": "https://localhost:5000" // para desarrollo
+        "BaseUrl": "http://localhost:5000", // para docker
+        "RateLimitOptions": {
+            "DisableRateLimitHeaders": false,
+            "QuotaExceededMessage": "¡Cálmate! Has hecho demasiadas peticiones.",
+            "HttpStatusCode": 429,
+            "ClientIdHeader": "ClientId"
+        }
+    }
+}

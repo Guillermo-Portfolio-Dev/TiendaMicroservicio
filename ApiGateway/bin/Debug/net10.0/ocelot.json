@@ -1,0 +1,47 @@
+{
+    "Routes": [
+        {
+            "DownstreamPathTemplate": "/api/Users/{everything}",
+            //"DownstreamScheme": "https",//para desarrollo
+            "DownstreamScheme": "http",//para docker
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": 8080
+                }
+            ],
+            "UpstreamPathTemplate": "/users/{everything}",
+            "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ]
+        },
+        {
+            "DownstreamPathTemplate": "/api/Products/{everything}",
+            //"DownstreamScheme": "https",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": 8081
+                }
+            ],
+            "UpstreamPathTemplate": "/products/{everything}",
+            "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ]
+        },
+        {
+            "DownstreamPathTemplate": "/api/Orders/{everything}",
+            //"DownstreamScheme": "https",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": 8082
+                }
+            ],
+            "UpstreamPathTemplate": "/orders/{everything}",
+            "UpstreamHttpMethod": [ "Get", "Post", "Delete" ]
+        }
+    ],
+    "GlobalConfiguration": {
+        //"BaseUrl": "https://localhost:5000" // para desarrollo
+        "BaseUrl": "http://localhost:5000" // para docker
+    }
+}

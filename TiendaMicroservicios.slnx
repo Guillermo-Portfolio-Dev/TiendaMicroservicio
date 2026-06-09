@@ -1,0 +1,10 @@
+<Solution>
+  <Folder Name="/Elementos de la solución/">
+    <File Path="docker-compose.yml" />
+    <File Path="docker_compose.txt" />
+  </Folder>
+  <Project Path="ApiGateway/ApiGateway.csproj" Id="06980677-7b2c-4aa3-a1cc-a7ab2cbe847f" />
+  <Project Path="Orders.Api/Orders.Api.csproj" Id="c4031027-0029-4ae9-81df-e92068c7f166" />
+  <Project Path="Productos.Api/Productos.Api.csproj" Id="f044b96f-8b6c-4f28-8935-03dab4f0cad0" />
+  <Project Path="Usuarios.Api/Usuarios.Api.csproj" />
+</Solution>

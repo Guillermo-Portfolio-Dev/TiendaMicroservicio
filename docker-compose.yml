@@ -1,0 +1,97 @@
+services:
+  # --- USUARIOS (PostgreSQL) ---
+  usuarios-db:
+    image: postgres:14.22-bookworm
+    container_name: usuarios-db
+    environment:
+       - POSTGRES_USER=postgres
+       - POSTGRES_PASSWORD=postgres
+       - POSTGRES_DB=usuarios
+    ports:
+       - "5432:5432"
+    volumes:
+       - postgres-data:/var/lib/postgresql/data
+
+  usuarios-api:
+    build:
+       context: .
+       dockerfile: Usuarios.Api/Dockerfile
+    container_name: usuarios-api
+    ports:
+       - "8080:8080"
+    environment:
+       - ConnectionStrings__PostgresConnection=Host=usuarios-db;Port=5432;Database=usuarios;Username=postgres;Password=postgres
+    depends_on:
+       - usuarios-db
+
+  # --- PRODUCTOS (MySQL) ---
+  productos-db:
+    image: mysql:8.0
+    container_name: productos-db
+    environment:
+       - MYSQL_ROOT_PASSWORD=rootpassword
+       - MYSQL_DATABASE=productos_db
+       - MYSQL_USER=mysql
+       - MYSQL_PASSWORD=mysql
+    ports:
+       - "3306:3306"
+    volumes:
+       - mysql-data:/var/lib/mysql
+
+  productos-api:
+    build:
+       context: .
+       dockerfile: Productos.Api/Dockerfile
+    container_name: productos-api
+    ports:
+       - "8081:8080"
+    environment:
+       # CORREGIDO: Ahora apunta a productos-db y usa formato de MySQL
+       - ConnectionStrings__ProductosConnection=Server=productos-db;Port=3306;Database=productos_db;Uid=mysql;Pwd=mysql;
+    depends_on:
+       - productos-db # CORREGIDO: Depende de su propia base de datos
+
+  # --- PEDIDOS (MongoDB) ---
+  orders-db:
+    image: mongo:latest
+    container_name: orders-db
+    ports:
+     - "27017:27017"
+    volumes:
+     - orders-data:/data/db
+
+  orders-api:
+    container_name: orders-api
+    build:
+      context: .
+      dockerfile: Orders.Api/Dockerfile
+    ports:
+      - "8082:8080"
+    environment:
+      - MongoSettings__ConnectionString=mongodb://orders-db:27017
+      - MongoSettings__DatabaseName=OrdersDb
+    depends_on:
+      - orders-db
+  # ---- REDIS ----
+  redis:
+   image: redis:alpine
+   container_name: tienda-redis
+   ports:
+    - "6379:6379"
+
+  # ---- GATEWAY OCELOT 
+  gateway:
+    image: ${DOCKER_REGISTRY-}apigateway
+    build:
+       context: .
+       dockerfile: ApiGateway/Dockerfile
+    ports:
+      - "5000:8080"
+    depends_on:
+      - usuarios-api
+      - productos-api
+      - orders-api
+volumes:
+  postgres-data:
+  mysql-data:  
+  orders-data:
