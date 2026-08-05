@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "3DXQxS7S8DE=",
+  "dgSpecHash": "orMC1Fv72/8=",
   "success": true,
   "projectFilePath": "F:\\Proyect_Visual\\TallerNET10\\TiendaMicroservicios\\Orders.Api\\Orders.Api.csproj",
   "expectedPackageFiles": [
@@ -25,5 +25,18 @@
     "C:\\Users\\acuar\\.nuget\\packages\\stackexchange.redis\\2.7.27\\stackexchange.redis.2.7.27.nupkg.sha512",
     "C:\\Users\\acuar\\.nuget\\packages\\zstdsharp.port\\0.7.3\\zstdsharp.port.0.7.3.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1903",
+      "level": "Warning",
+      "message": "El paquete \"Microsoft.OpenApi\" 2.0.0 tiene una vulnerabilidad de gravedad alta conocida, https://github.com/advisories/GHSA-v5pm-xwqc-g5wc",
+      "projectPath": "F:\\Proyect_Visual\\TallerNET10\\TiendaMicroservicios\\Orders.Api\\Orders.Api.csproj",
+      "warningLevel": 1,
+      "filePath": "F:\\Proyect_Visual\\TallerNET10\\TiendaMicroservicios\\Orders.Api\\Orders.Api.csproj",
+      "libraryId": "Microsoft.OpenApi",
+      "targetGraphs": [
+        "net10.0"
+      ]
+    }
+  ]
 }

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "ASEAlqfY7GM=",
+  "dgSpecHash": "x9KumKigkvI=",
   "success": true,
   "projectFilePath": "F:\\Proyect_Visual\\TallerNET10\\TiendaMicroservicios\\Usuarios.Api\\Usuarios.Api.csproj",
   "expectedPackageFiles": [
@@ -39,5 +39,18 @@
     "C:\\Users\\acuar\\.nuget\\packages\\system.composition.runtime\\9.0.0\\system.composition.runtime.9.0.0.nupkg.sha512",
     "C:\\Users\\acuar\\.nuget\\packages\\system.composition.typedparts\\9.0.0\\system.composition.typedparts.9.0.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1903",
+      "level": "Warning",
+      "message": "El paquete \"Microsoft.OpenApi\" 2.0.0 tiene una vulnerabilidad de gravedad alta conocida, https://github.com/advisories/GHSA-v5pm-xwqc-g5wc",
+      "projectPath": "F:\\Proyect_Visual\\TallerNET10\\TiendaMicroservicios\\Usuarios.Api\\Usuarios.Api.csproj",
+      "warningLevel": 1,
+      "filePath": "F:\\Proyect_Visual\\TallerNET10\\TiendaMicroservicios\\Usuarios.Api\\Usuarios.Api.csproj",
+      "libraryId": "Microsoft.OpenApi",
+      "targetGraphs": [
+        "net10.0"
+      ]
+    }
+  ]
 }

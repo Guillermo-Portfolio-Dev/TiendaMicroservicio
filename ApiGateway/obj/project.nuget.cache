@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "1HgFJuuBYIc=",
+  "dgSpecHash": "vhKEtzCEHuI=",
   "success": true,
   "projectFilePath": "F:\\Proyect_Visual\\TallerNET10\\TiendaMicroservicios\\ApiGateway\\ApiGateway.csproj",
   "expectedPackageFiles": [
@@ -30,5 +30,18 @@
     "C:\\Users\\acuar\\.nuget\\packages\\system.security.permissions\\6.0.0\\system.security.permissions.6.0.0.nupkg.sha512",
     "C:\\Users\\acuar\\.nuget\\packages\\system.windows.extensions\\6.0.0\\system.windows.extensions.6.0.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1903",
+      "level": "Warning",
+      "message": "El paquete \"Microsoft.OpenApi\" 2.0.0 tiene una vulnerabilidad de gravedad alta conocida, https://github.com/advisories/GHSA-v5pm-xwqc-g5wc",
+      "projectPath": "F:\\Proyect_Visual\\TallerNET10\\TiendaMicroservicios\\ApiGateway\\ApiGateway.csproj",
+      "warningLevel": 1,
+      "filePath": "F:\\Proyect_Visual\\TallerNET10\\TiendaMicroservicios\\ApiGateway\\ApiGateway.csproj",
+      "libraryId": "Microsoft.OpenApi",
+      "targetGraphs": [
+        "net10.0"
+      ]
+    }
+  ]
 }

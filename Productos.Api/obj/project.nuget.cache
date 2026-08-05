@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "i53DoxZL6lQ=",
+  "dgSpecHash": "tTOWACVG9aI=",
   "success": true,
   "projectFilePath": "F:\\Proyect_Visual\\TallerNET10\\TiendaMicroservicios\\Productos.Api\\Productos.Api.csproj",
   "expectedPackageFiles": [
@@ -15,5 +15,18 @@
     "C:\\Users\\acuar\\.nuget\\packages\\pomelo.entityframeworkcore.mysql\\9.0.0\\pomelo.entityframeworkcore.mysql.9.0.0.nupkg.sha512",
     "C:\\Users\\acuar\\.nuget\\packages\\scalar.aspnetcore\\2.14.6\\scalar.aspnetcore.2.14.6.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1903",
+      "level": "Warning",
+      "message": "El paquete \"Microsoft.OpenApi\" 2.0.0 tiene una vulnerabilidad de gravedad alta conocida, https://github.com/advisories/GHSA-v5pm-xwqc-g5wc",
+      "projectPath": "F:\\Proyect_Visual\\TallerNET10\\TiendaMicroservicios\\Productos.Api\\Productos.Api.csproj",
+      "warningLevel": 1,
+      "filePath": "F:\\Proyect_Visual\\TallerNET10\\TiendaMicroservicios\\Productos.Api\\Productos.Api.csproj",
+      "libraryId": "Microsoft.OpenApi",
+      "targetGraphs": [
+        "net10.0"
+      ]
+    }
+  ]
 }
